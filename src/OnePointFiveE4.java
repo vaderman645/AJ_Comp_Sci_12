@@ -10,6 +10,8 @@ public class OnePointFiveE4 {
         if (torf.equalsIgnoreCase("false")){score++;}
         String torfanswer = (torf.equalsIgnoreCase("false")) ? "Correct" : "Wrong, they speak Portuguese";
         print(torfanswer);
+
+
         print("Who does Kylo Ren kill in Star Wars: The Force Awakens? \nA: Chewbacca \nB: Han Solo \nC: Princess Leia \nD: George Lucas");
         String multiple = input.nextLine();
         if (multiple.equalsIgnoreCase("B")){
