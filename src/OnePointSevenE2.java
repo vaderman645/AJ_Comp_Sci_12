@@ -7,7 +7,8 @@ public class OnePointSevenE2 {
             for (int i = 0; i < num.length; i++) {
                 for (int j = i + 1; j < num.length; j++) {
                     if (num[i] ==(num[j])) {
-counter++;
+
+                        counter++;
                         System.out.print(num[j]);
 
                     }
