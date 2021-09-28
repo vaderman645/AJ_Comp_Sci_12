@@ -3,7 +3,9 @@ public class OnePointSevenE2 {
         int [] num = {2,5,6,2,5,2,8,5};
         int counter = 0;
 
-        for (int count=0;count<num.length;count++){System.out.println(num[count]);}
+        for (int k : num) {
+            System.out.println(k);
+        }
             for (int i = 0; i < num.length; i++) {
                 for (int j = i + 1; j < num.length; j++) {
                     if (num[i] ==(num[j])) {
