@@ -7,7 +7,7 @@ public class OnePointSix {
     for (int i = 0; i<22;i=i + 3){System.out.println(i);}
 System.out.println("\nCounting Down from 21: \n");
     for (int i = 22;i>0;i=i){
-        if (i==20){i=1;}i = i -1;
+        if (i==20){i=14;}i = i -1;
         System.out.println(i);
     }
 
