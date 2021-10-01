@@ -1,7 +1,6 @@
 
 
 import java.util.Scanner;
-import java.util.concurrent.locks.Condition;
 
 public class UnitOneProject {
     static void print(String input) {
@@ -20,11 +19,11 @@ public class UnitOneProject {
     static void BooleanArrays(boolean Condition1, boolean Condition2, boolean TrueOrFalse) {
         print("  ");//method for boolean arrays, conditions are the arrays in position i, and then it prints the output (TrueOrFalse)
         System.out.print(Condition1);
-        if (Condition1 == true) {
+        if (Condition1) {
             print(" ");
         }
         print("     |       " + Condition2);
-        if (Condition2 == true) {
+        if (Condition2) {
             print(" ");
         }
         print("      |  " + TrueOrFalse + "\n");
@@ -38,21 +37,19 @@ public class UnitOneProject {
 
 
     public static void main(String[] args) {
-        Byte selection = 0;
-        while (selection !=5) {
+        byte selection = 0;
+        while (selection !=5) {//loops the whole thing unless they pick 5
             Scanner input = new Scanner(System.in);
 
             println("\nEnter your selection: \n1. An addition table\n2. A multiplication table\n3. A logic table for booleans logics AND gate\n4. A logic table for booleans logics OR gate\n5. Exit\n");
 
             selection = input.nextByte();
             switch (selection) {
-
-                case 1:// Addition Table
-                    byte[] firstrow = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
+                case 1 -> {// Addition Table
+                    byte[] first = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                     for (byte i = 0; i < 11; i++) {//this loop controls the bases
                         for (byte x = 0; x < 11; x++) {// this nested loop controls the rows
-                            byte result = (byte) ((i * 10) + firstrow[x]);
+                            byte result = (byte) ((i * 10) + first[x]);
                             if (isPerfSquare(result) && Byte.toString(result).length() == 1) {
                                 print(Red + result + "   " + White);
                             }// turns perfect squares with a length of 1 red
@@ -69,18 +66,16 @@ public class UnitOneProject {
                         }
                         print("\n"); // adds a new line
                     }
-                    break;
-                case 2:// multiplication table
-                    byte[] MultiplacationFirstrow = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-                    byte multibase = 0;//declaring the base, number to be multiplied by first row
-
+                }
+                case 2 -> {// multiplication table
+                    byte[] MultiplicationFirst = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+                    byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
                     print("\n");//Separate lines
-
                     for (byte i = 0; i < 10; i++) {//this loop controls the bases
 
-                        multibase = (byte) (multibase + 1);// goes from 1 to 2, 3 to 4, etc
+                        MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
                         for (byte x = 0; x < 10; x++) {// this nested loop controls the rows
-                            byte result = (byte) (multibase * MultiplacationFirstrow[x]);
+                            byte result = (byte) (MultiTableBase * MultiplicationFirst[x]);
                             if (isPerfSquare(result) && Byte.toString(result).length() == 1) {
                                 print(Red + " " + result + "  " + White);
                             }// turns perfect squares with a length of 1 red
@@ -98,29 +93,23 @@ public class UnitOneProject {
                         }
                         print("\n"); // adds a new line
                     }
-                    break;
-
-                case 3://Booleans AND Gate table
+                }
+                case 3 -> {//Booleans AND Gate table
                     print("Condition 1 |   Condition 2    |  AND\n");
                     for (byte x = 0; x < 4; x++) {
-                        boolean TrueOrFalse = (Condition1[x] == true && Condition2[x] == true) ? true : false;//does it meet AND?
+                        boolean TrueOrFalse = Condition1[x] && Condition2[x];//does it meet AND?
                         BooleanArrays(Condition1[x], Condition2[x], TrueOrFalse);//calling method
                     }
-                    break;
-
-                case 4:// Booleans OR gate
+                }
+                case 4 -> {// Booleans OR gate
                     print("Condition 1 |   Condition 2    |   OR\n");
                     for (byte x = 0; x < 4; x++) {
-                        boolean TrueOrFalse = (Condition1[x] == true || Condition2[x] == true) ? true : false;//does it meet OR?
+                        boolean TrueOrFalse = Condition1[x] || Condition2[x];//does it meet OR?
                         BooleanArrays(Condition1[x], Condition2[x], TrueOrFalse);//calling method
                     }
-                    break;
-                case 5:
-                    println("Bye");
-
-                    break;
-                default:
-                    print("Try Again Please");
+                }
+                case 5 -> println("Bye");
+                default -> print("Try Again Please\n");
             }
         }
     }
