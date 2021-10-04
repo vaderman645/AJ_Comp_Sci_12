@@ -108,7 +108,40 @@ public class UnitOneProject {
                         BooleanArrays(Condition1[x], Condition2[x], TrueOrFalse);//calling method
                     }
                 }
-                case 5 -> println("Bye");
+                case 5 -> {
+
+                byte[][] bytetest = new byte[9][9];
+                for (byte a = 0; a < 9;a++){bytetest[0][a] = a;print(Byte.toString(bytetest[0][a]));}
+                System.out.println(bytetest[1][1]);
+                    byte[] MultiplicationFirst = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+                    byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
+                    print("\n");//Separate lines
+                    for (byte b = 0; b < 10; b++) {//this loop controls the bases
+
+                        MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
+                        for (byte c = 0; c < 10; c++) {// this nested loop controls the rows
+                            byte result = (byte) (MultiTableBase * MultiplicationFirst[c]);
+                            if (isPerfSquare(result) && Byte.toString(result).length() == 1) {
+                                print(Red + " " + result + "  " + White);
+                            }// turns perfect squares with a length of 1 red
+                            else if (isPerfSquare(result) && Byte.toString(result).length() == 2) {
+                                print(Red + result + "  " + White);
+                            }// ^^^^^^^^^^^^^^^^^^^^^^^^^^^ length of 2 red
+                            else if (Byte.toString(result).length() == 1) {
+                                print(" " + result + "  ");
+                            }//ensures proper alignment for numbers of differing lengths
+                            else if (Byte.toString(result).length() == 2) {
+                                print(result + "  ");
+                            } else {
+                                print(result + " ");
+                            }
+                        }
+                        print("\n"); // adds a new line
+
+                }
+
+            }
+                case 6 -> println("Bye");
                 default -> print("Try Again Please\n");
             }
         }
