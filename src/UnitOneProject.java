@@ -110,8 +110,8 @@ public class UnitOneProject {
                 }
                 case 5 -> {
 
-                byte[][] bytetest = new byte[9][9];
-                for (byte a = 0; a < 9;a++){bytetest[0][a] = a;print(Byte.toString(bytetest[0][a]));}
+                byte[][] bytetest = new byte[9][11];
+                for (byte a = 0; a < 11;a++){bytetest[0][a] = a;print(Byte.toString(bytetest[0][a]));}
                 System.out.println(bytetest[1][1]);
                     byte[] MultiplicationFirst = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
                     byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
