@@ -113,13 +113,8 @@ public class UnitOneProject {
                         MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
                         for (byte x = 0; x < 10; x++) {// this nested loop controls the rows
                             bytetest[MultiTableBase][x] = MultiplicationFirst[x];
-                            byte result = (byte) (MultiTableBase * MultiplicationFirst[x]);
-                            if (isPerfSquare(result)) {
-                                print(Red +result + "\t"+ White);
-                            }// turns perfect squares red
-                            else {
-                                System.out.print(result + "\t");
-                            }
+                            System.out.println(bytetest[MultiTableBase][x]);
+
                         }
                         print("\n"); // adds a new line
                     }
