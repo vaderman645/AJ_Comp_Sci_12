@@ -17,16 +17,8 @@ public class UnitOneProject {
     static boolean[] Condition2 = {true, false, true, false};// ^^^^^^^^^^^^^^^^^^^^^^^
 
     static void BooleanArrays(boolean Condition1, boolean Condition2, boolean TrueOrFalse) {
-        print("  ");//method for boolean arrays, conditions are the arrays in position i, and then it prints the output (TrueOrFalse)
-        System.out.print(Condition1);
-        if (Condition1) {
-            print(" ");
-        }
-        print("     |       " + Condition2);
-        if (Condition2) {
-            print(" ");
-        }
-        print("      |  " + TrueOrFalse + "\n");
+        //method for boolean arrays, conditions are the arrays in position i, and then it prints the output (TrueOrFalse)
+        print(Condition1 + "\t\t|\t" + Condition2 + "\t|\t" + TrueOrFalse + "\n");
     }
 
     static boolean isPerfSquare(double z)//method for perfect square
@@ -34,14 +26,21 @@ public class UnitOneProject {
         double square = Math.sqrt(z);
         return ((square - Math.floor(square)) == 0);
     }
-
+    static int factorials(int num) {
+        int factorial;
+        for(factorial = 1; num > 1; num--){
+            factorial *= num;}
+        return factorial;}
+    static int Pascals(int n,int r) {
+        return factorials(n) / ( factorials(n-r) * factorials(r) );
+    }
 
     public static void main(String[] args) {
         byte selection = 0;
-        while (selection !=5) {//loops the whole thing unless they pick 5
+        while (selection !=7) {//loops the whole thing unless they pick 5
             Scanner input = new Scanner(System.in);
 
-            println("\nEnter your selection: \n1. An addition table\n2. A multiplication table\n3. A logic table for booleans logics AND gate\n4. A logic table for booleans logics OR gate\n5. Exit\n");
+            println("\nEnter your selection: \n1. An addition table\n2. A multiplication table\n3. A logic table for booleans logics AND gate\n4. A logic table for booleans logics OR gate\n5. 2 Dimensional Multiplication table\n6. Pascals Triangle\n7. Exit");
 
             selection = input.nextByte();
             switch (selection) {
@@ -85,42 +84,55 @@ public class UnitOneProject {
                     }
                 }
                 case 3 -> {//Booleans AND Gate table
-                    print("Condition 1 |   Condition 2    |  AND\n");
+                    print("Condition 1 |Condition 2|\tAND\n");
                     for (byte x = 0; x < 4; x++) {
                         boolean TrueOrFalse = Condition1[x] && Condition2[x];//does it meet AND?
                         BooleanArrays(Condition1[x], Condition2[x], TrueOrFalse);//calling method
                     }
                 }
                 case 4 -> {// Booleans OR gate
-                    print("Condition 1 |   Condition 2    |   OR\n");
+                    print("Condition 1 |Condition 2|\tOR\n");
                     for (byte x = 0; x < 4; x++) {
                         boolean TrueOrFalse = Condition1[x] || Condition2[x];//does it meet OR?
                         BooleanArrays(Condition1[x], Condition2[x], TrueOrFalse);//calling method
                     }
                 }
-                case 5 -> println("Bye");
-
-                case 6 -> {// 2d multiplication table
+                case 5 -> {// 2d multiplication table
                     byte[] MultiplicationFirst = new byte[10];
-                    byte[][] bytetest = new byte[9][11];
+                    byte[][] bytetest = new byte[11][11];
                     for (byte x = 0,y = 1; x < 10; x++,y++){MultiplicationFirst[x] =y;}//adding an array of 1-10
                     for (byte x = 0,y = 1; x < 10; x++,y++){bytetest[0][x] =y;System.out.println(bytetest[0][x]);}
 
                     byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
                     print("\n");//Separate lines
                     for (byte i = 0; i < 10; i++) {//this loop controls the bases
-
                         MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
                         for (byte x = 0; x < 10; x++) {// this nested loop controls the rows
-                            bytetest[MultiTableBase][x] = MultiplicationFirst[x];
-                            System.out.println(bytetest[MultiTableBase][x]);
-
+                            bytetest[MultiTableBase][x] = (byte) (MultiplicationFirst[x] * MultiTableBase);
+                            byte result = bytetest[MultiTableBase][x];
+                            if (isPerfSquare(result)) {
+                                print(Red +result + "\t"+ White);}// turns perfect squares red
+                            else {
+                                System.out.print(result + "\t");
+                            }
                         }
                         print("\n"); // adds a new line
                     }
                 }
-
-
+                case 6 -> {//pascals triangle
+                    print("\nEnter # of rows");
+                    int NumberOfRows = input.nextInt();
+                    for(int i = 0; i < NumberOfRows; i++) {
+                        for(int j = 0; j < NumberOfRows-i; j++){
+                            System.out.print(" ");}
+                        for(int y = 0; y <= i; y++){
+                            int result = Pascals(i,y);
+                            System.out.print(" "+result);
+                        }
+                        System.out.println();
+                    }
+                }
+                case 7 -> println("Bye");
                 default -> print("Try Again Please\n");
             }
         }
