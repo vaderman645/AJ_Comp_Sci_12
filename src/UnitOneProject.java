@@ -61,18 +61,18 @@ public class UnitOneProject {
                 }
                 case 2 -> {// multiplication table
                     println("\nEnter How dimensions of array:\nLength:");
-                    byte length = input.nextByte();
+                    int length = input.nextInt();//note: all integers because bytes can't go over 256
                     println("\nWidth:");
-                    byte width = input.nextByte();
-                    byte[] MultiplicationFirst = new byte[width];
+                    int width = input.nextByte();
+                    int[] MultiplicationFirst = new int[width];
                     for (byte x = 0,y = 1; x < width; x++,y++){MultiplicationFirst[x] =y;}//adding an array of 1-10
-                    byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
+                    int MultiTableBase = 0;//declaring the base, number to be multiplied by first row
                     print("\n");//Separate lines
                     for (byte i = 0; i < length; i++) {//this loop controls the bases
 
                         MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
                         for (byte x = 0; x < width; x++) {// this nested loop controls the rows
-                            byte result = (byte) (MultiTableBase * MultiplicationFirst[x]);
+                            int result = (MultiTableBase * MultiplicationFirst[x]);
                             if (isPerfSquare(result)) {
                                 print(Red +result + "\t"+ White);
                             }// turns perfect squares red
@@ -98,18 +98,15 @@ public class UnitOneProject {
                     }
                 }
                 case 5 -> {// 2d multiplication table
-                    byte[] MultiplicationFirst = new byte[10];
-                    byte[][] bytetest = new byte[11][11];
-                    for (byte x = 0,y = 1; x < 10; x++,y++){MultiplicationFirst[x] =y;}//adding an array of 1-10
-                    for (byte x = 0,y = 1; x < 10; x++,y++){bytetest[0][x] =y;System.out.println(bytetest[0][x]);}
+                    byte[][] MultiplicationTable = new byte[11][11];
+                    for (byte x = 0,y = 1; x < 10; x++,y++){MultiplicationTable[0][x] =y;}//adding an array of 1-10
 
                     byte MultiTableBase = 0;//declaring the base, number to be multiplied by first row
-                    print("\n");//Separate lines
                     for (byte i = 0; i < 10; i++) {//this loop controls the bases
                         MultiTableBase += 1;// goes from 1 to 2, 3 to 4, etc
                         for (byte x = 0; x < 10; x++) {// this nested loop controls the rows
-                            bytetest[MultiTableBase][x] = (byte) (MultiplicationFirst[x] * MultiTableBase);
-                            byte result = bytetest[MultiTableBase][x];
+                            MultiplicationTable[MultiTableBase][x] = (byte) (MultiplicationTable[0][x] * MultiTableBase);
+                            byte result = MultiplicationTable[MultiTableBase][x];
                             if (isPerfSquare(result)) {
                                 print(Red +result + "\t"+ White);}// turns perfect squares red
                             else {
