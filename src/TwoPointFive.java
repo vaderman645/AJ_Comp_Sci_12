@@ -5,8 +5,7 @@ public class TwoPointFive {
         return inp1+inp2;
     }
     static boolean Overload(boolean inp1, boolean inp2){
-        if(Boolean.toString(inp1).equalsIgnoreCase("true")&& Boolean.toString(inp2).equalsIgnoreCase("true")){return true;}
-        else {return false;}
+        return inp1 && inp2;
     }
     static String Overload(String inp1, String inp2){
         return inp1 + inp2;
@@ -19,10 +18,10 @@ public class TwoPointFive {
     System.out.println(Overload(intInp1,intInp2));
 
     System.out.println("Enter Your Booleans to add: ");
+    input.nextLine();
     boolean booInp1 = Boolean.parseBoolean(input.nextLine());
     boolean booInp2 = Boolean.parseBoolean(input.nextLine());
-    booInp2 = Boolean.parseBoolean(input.nextLine());
-    System.out.println(Overload(booInp1,booInp2));
+    System.out.println("And Gate = "+Overload(booInp1,booInp2));
 
     System.out.println("Enter Your Strings to add: ");
     String strInp1 = input.nextLine();
