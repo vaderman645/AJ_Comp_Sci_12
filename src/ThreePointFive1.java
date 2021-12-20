@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class ThreePointFive1 {
-    static int output=1;
+    static int output = 1;
+
     static int exponents(int base, int exponent) {
         if (exponent == 0) {
             return output;

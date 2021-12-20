@@ -2,10 +2,13 @@ import java.util.Scanner;
 
 public class ThreePointFive2 {
     static int output = 1;
+
     static int factor(int inp) {
-        if(inp ==0){return output;}
+        if (inp == 0) {
+            return output;
+        }
         output = output * inp;
-        return factor(inp-1);
+        return factor(inp - 1);
     }
 
     public static void main(String[] args) {
